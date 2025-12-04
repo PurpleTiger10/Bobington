@@ -72,6 +72,7 @@ public class ChoiceHandler implements ActionListener{
     case "police5": game.police5(); break;
     case "BoblessArmy2": bobless.BoblessArmy2(); break;
     case "BoblessArmy3": bobless.BoblessArmy3(); break;
+    case "scroll2": lame.scroll2(); break;
     }
   }
 
