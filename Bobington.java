@@ -18,9 +18,22 @@ import java.awt.Toolkit;
 import java.awt.Dimension;
 
 public class Bobington {
- Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
- double width = screenSize.getWidth();
- double height = screenSize.getHeight();
+ Dimension screenSize;
+ double width;
+ double height;
+ 
+ {
+     try {
+         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+         width = screenSize.getWidth();
+         height = screenSize.getHeight();
+     } catch (Exception e) {
+         // Headless environment - use default values
+         screenSize = new Dimension(1600, 1200);
+         width = 1600;
+         height = 1200;
+     }
+ }
  double resize = (width < 2000 || height < 1300) ? 2 : 1;
  JFrame window;
  Container con;
