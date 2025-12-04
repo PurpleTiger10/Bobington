@@ -13,7 +13,6 @@ import javax.swing.JTextField;
 
 import FIGHT.GamePanel;
 import FIGHT.keyHandler;
-
 import javax.swing.JLabel;
 import java.awt.Toolkit;
 import java.awt.Dimension;
