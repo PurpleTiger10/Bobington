@@ -59,6 +59,9 @@ public void nap(){
             "supporter roam free!\"");
         fight();
         //sf.fight();
+        game.choiceButtonPanel.remove(game.choice2);
+        game.choice1.setText("Sadly, I haven't got this fight to work; continue");
+        game.nextPosition1 = "victory";
         game.con.revalidate();
         game.con.repaint();
     }
@@ -68,6 +71,18 @@ public void nap(){
             "bit outnumbered by the Bob army, but, with people like you, we can turn the tides. So, what do you say?\"");
         game.choice1.setText("Join the Blorb army");
         game.choice2.setText("No thanks. Just let me scroll");
+        game.con.repaint();
+        game.con.revalidate();
+    }
+    public void victory(){
+        game.mainTextArea.setText("You deliver a crushing blow to the solicitor, who falls to the ground, defeated. "+
+            "The solicitor yelps in horror as \"Bubby\" falls to the ground. \"You little twit! You will pay for this!\" he "+
+        "says. He grabs his buddy and they both scamper off. What now?");
+        game.choiceButtonPanel.add(game.choice2);
+        game.choice1.setText("Take a nap");
+        game.choice2.setText("Join the Bob army");
+        game.nextPosition1 = "nap";
+        game.nextPosition2 = "BoblessArmy";
         game.con.repaint();
         game.con.revalidate();
     }
