@@ -31,8 +31,11 @@ public class lameGuy{
     }
 public void nap(){
     game.mainTextArea.setText("You are a wee bit sleepy and so you go to bed.");
-    game.choice1.setText("what");
-    game.choice2.setText("to do?");
+    game.choiceButtonPanel.remove(game.choice2);
+    game.choice1.setText("Continue...");
+    if (game.blorbChill == true){
+        game.nextPosition1 = "BobNap";
+    }else{game.nextPosition1 = "BlorbNap";}
     game.con.repaint();
     game.con.revalidate();
     }
@@ -85,5 +88,21 @@ public void nap(){
         game.nextPosition2 = "BoblessArmy";
         game.con.repaint();
         game.con.revalidate();
+    }
+    public void BobNap(){
+        game.mainTextArea.setText("You hear glass shattering. Dazed, you sit up in your bed. Something is wrong. "+
+        "\"You have nowhere to run, you worthless man!\" a voice shouts.");
+        game.choiceButtonPanel.remove(game.choice2);
+        game.choiceButtonPanel.add(game.chioce2);
+        game.choice1.setText("RUN");
+        game.choice2.setText("HIDE");
+    }
+    public void BlorbNap(){
+        game.mainTextArea.setText("You hear glass shattering. Dazed, you sit up in your bed. Something is wrong. "+
+        "\"You have nowhere to run, you worthless man!\" a voice shouts.");
+        game.choiceButtonPanel.remove(game.choice2);
+        game.choiceButtonPanel.add(game.chioce2);
+        game.choice1.setText("RUN");
+        game.choice2.setText("HIDE");
     }
 }
