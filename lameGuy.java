@@ -98,11 +98,24 @@ public void nap(){
         game.choice2.setText("HIDE");
     }
     public void BlorbNap(){
-        game.mainTextArea.setText("You hear glass shattering. Dazed, you sit up in your bed. Something is wrong. "+
-        "\"You have nowhere to run, you worthless man!\" a voice shouts.");
+        game.mainTextArea.setText("You wake up to the sound of a loud knock. Dazed, you get out of bed and walk to the door."+
+        "You check the peephole to see who it is. It's Blorb! \"Let me in, filth! You will pay! You will pay!\" he shouts." +
+    "\"I'm not letting you in Blorb!\" you yell back. \"Perhaps not, and if so, I will let myself in!\" He pulls a "+
+"battering ram from behind his back and slams it into your door.");
         game.choiceButtonPanel.remove(game.choice2);
         game.choiceButtonPanel.add(game.chioce2);
         game.choice1.setText("RUN");
         game.choice2.setText("HIDE");
+        game.nextPosition1 = "BlorbRUN";
+        game.nextPosition2 = "BlorbHIDE";
     }
+    public void BlorbRUN(){
+        game.mainTextArea.setText("You sprint towards the back door as fast as your little legs can carry you. *CRASH!* "+
+        "The door splinters to peices behind you. \"Haha! You cannot escape me!\" Blorb yells. You sprint into your room and slam "+
+    "the door behind you. \"You think this will stop me?\" Blorb shouts, as he begins to batter down your door. You open your "+
+"window and leap out. You run out of the neighborhood and out of the town, never to return.");
+        game.choiceButtonPanel.remove(game.choice2);
+        game.choice1.setText("Continue...");
+    }
+    public void BlorbHIDE(){}
 }
