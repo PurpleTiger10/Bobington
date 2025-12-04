@@ -24,8 +24,8 @@ public class enemy extends EntityEnemy{
     }
 
     public void setDefaultValues(){
-        x = -200;
-        y = -100;
+         //x = -200;
+         //y = -100;
         action = "idle";
     }
 
@@ -105,6 +105,6 @@ public class enemy extends EntityEnemy{
                 break;
         }
 
-        g2.drawImage(image, x, y, 750, 750, null);
+        g2.drawImage(image, -200, -100, 750, 750, null);
     }
 }
