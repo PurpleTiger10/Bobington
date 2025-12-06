@@ -118,4 +118,5 @@ public void nap(){
         game.choice1.setText("Continue...");
     }
     public void BlorbHIDE(){}
+    public void lameEnding(){}
 }
