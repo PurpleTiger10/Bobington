@@ -1,45 +1,45 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+//import java.awt.image.BufferedImage;
+//import java.io.IOException;
+
 import javax.swing.BorderFactory;
+//import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+//import javax.swing.border.Border;
 
 import FIGHT.GamePanel;
 import FIGHT.keyHandler;
+
+//import java.awt.*;
+
 import javax.swing.JLabel;
 import java.awt.Toolkit;
 import java.awt.Dimension;
 
+//import javax.imageio.ImageIO;
+
+//import java.net.URL;
+
 public class Bobington {
- Dimension screenSize;
- double width;
- double height;
- 
- {
-     try {
-         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-         width = screenSize.getWidth();
-         height = screenSize.getHeight();
-     } catch (Exception e) {
-         // Headless environment - use default values
-         screenSize = new Dimension(1600, 1200);
-         width = 1600;
-         height = 1200;
-     }
- }
+ Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+ double width = screenSize.getWidth();
+ double height = screenSize.getHeight();
  double resize = (width < 2000 || height < 1300) ? 2 : 1;
  JFrame window;
  Container con;
  JTextField nameInput;
  JPanel titleNamePanel, startBottomPannel, mainTextPanel, choiceButtonPanel, playerPanel, drawingPanel;
- JLabel titleNameLabel, HPLabel, HPLabelNumber, weaponLabel, weaponLabelName;
+ JLabel titleNameLabel, HPLabel, HPLabelNumber, weaponLabel, weaponLabelName, artPix;
  Font titleFont = new Font("Times New Roman", Font.PLAIN, (int)(190/resize));
  Font startFont = new Font("Times New Roman", Font.PLAIN, (int)(90/resize));
  Font normalFont = new Font("Times New Roman", Font.PLAIN, (int)(45/resize));
@@ -57,8 +57,10 @@ public class Bobington {
  goodGuy good = new goodGuy(this);
  pachanakanwa pach = new pachanakanwa(this);
  String nextPosition1, nextPosition2, nextPosition3, nextPosition4;
+ ArtList list = new ArtList();
  ChoiceHandler choiceHandler = new ChoiceHandler(this, bad, bob, bobless, lame, good, pach);
  Boolean blorbChill = false, blorbEncounter = false;
+ ArtHandler artHan = new ArtHandler();
  public static void main(String[] args) {
      new Bobington();
  }
@@ -107,9 +109,13 @@ public class Bobington {
      titleNamePanel.setVisible(false);
      startBottomPannel.setVisible(false);
 
-     drawingPanel = new JPanel();
+     drawingPanel = new JPanel(new BorderLayout());
+     drawingPanel.setLayout(new GridLayout(1,1));
      drawingPanel.setBounds((int)(100/resize),(int)(30/resize),(int)(600/resize),(int)(900/resize));
      drawingPanel.setBackground(Color.decode("#00cccc"));
+
+     artHan.draw(ArtList.Loading);
+     drawingPanel.add(artHan);
 
      mainTextPanel = new JPanel();
      mainTextPanel.setBounds((int)(800/resize),(int)(30/resize),(int)(700/resize),(int)(550/resize));
@@ -210,8 +216,8 @@ public class Bobington {
      weaponLabelName.setText(playerWeapon);
      HPLabelNumber.setText(""+playerHP);
 
-    //start();
-    bobless.BoblessArmy();
+    start();
+    //bobless.BoblessArmy();
      con.revalidate();
      con.repaint();
  }
@@ -255,6 +261,7 @@ public class Bobington {
 }
 
  public void start1(){
+    artHan.draw(ArtList.BobingtonAerial);
      mainTextArea.setText("You are about to " +
  "embark on a journey \nof a lifetime, and it all starts in a happy" +
  "town by the name of Bobington. You, \nof course, do not know you are" +
@@ -301,8 +308,7 @@ public class Bobington {
 
  public void grocery(){
     position = "grocery";
-     mainTextArea.setText("You enter the grocery store to find \nsome snacks. You pace up and down \nthe aisles, trying to "+
-     "decide which snack you want.");
+     mainTextArea.setText("You enter the grocery store to find \nsome snacks. You pace up and down \nthe aisles, trying to decide which snack you want.");
 
      choice1.setText("Oodle-Oodle Bar");
      choice2.setText("Slackers");
@@ -319,8 +325,7 @@ public class Bobington {
  public void walk(){
     blorbEncounter = true;
      choiceButtonPanel.remove(choice2);
-     mainTextArea.setText("You walk out the door and begin to \nexplore the niegborhood. You smell thescent of freshly cut grass " +
-     "as the sun \nbeams down on your skin. \n\nWhat a wonderful day!");
+     mainTextArea.setText("You walk out the door and begin to \nexplore the niegborhood. You smell thescent of freshly cut grass as the sun \nbeams down on your skin. \n\nWhat a wonderful day!");
 
      choice1.setText("Continue");
 
@@ -331,8 +336,7 @@ public class Bobington {
 
 public void walk2(){
    choiceButtonPanel.add(choice2);
-   mainTextArea.setText("Suddenly, a white van skids to a stop \nnext to you. The window rolls down, \nand the driver... " +
-   "who is a cat... stares \ndirectly at you. \"Greetings, human.\" he says.");
+   mainTextArea.setText("Suddenly, a white van skids to a stop \nnext to you. The window rolls down, \nand the driver... who is a cat... stares \ndirectly at you. \"Greetings, human.\" he says.");
 
    choice1.setText("Can I help you?");
    choice2.setText("Who the absolute heck are you?!");
@@ -355,8 +359,7 @@ public void walkCan(){
 }
 
 public void walkWell(){
-   mainTextArea.setText("I need you to help me stop SuperBob, and on top of that, cleanse the city from its filth and germs! " +
-   "Will you join me?");
+   mainTextArea.setText("I need you to help me stop SuperBob, and on top of that, cleanse the city from its filth and germs! Will you join me?");
 
    choice1.setText("Sure");
    choice2.setText("No thanks");
@@ -476,8 +479,7 @@ public void walkKnow2(){
 
 public void walkNo(){
     choiceButtonPanel.remove(choice2);
-    mainTextArea.setText("\"You fool.\" He says. He reaches into the glove box, pulls out a bottle of hand-sanitizer, and squirts " +
-    "it into your eyes. With this, he drives away.\n\nBlorb will remember that.");
+    mainTextArea.setText("\"You fool.\" He says. He reaches into the glove box, pulls out a bottle of hand-sanitizer, and squirts it into your eyes. With this, he drives away.\n\nBlorb will remember that.");
     playerHP--;
     HPLabelNumber.setText("" + playerHP);
 
@@ -496,8 +498,7 @@ public void walkNo(){
 
 public void walkToRec(){
     choiceButtonPanel.add(choice2);
-    mainTextArea.setText("\"Well that was weird\" You think. Well anyways, you continue your walk. Eventually, you get to the " +
-    "grocery store.");
+    mainTextArea.setText("\"Well that was weird\" You think. Well anyways, you continue your walk. Eventually, you get to the grocery store.");
 
 
     choice1.setText("Go inside");
@@ -510,8 +511,7 @@ public void walkToRec(){
 
  public void recruitment(){
   choiceButtonPanel.add(choice2);
-  mainTextArea.setText("You begin to head home, when a random solicitor stops you. \"Hello, sorry to stop you sir,\" she " +
-  "says, \"But would you like to join the Bob army? We are here to protect the sick and all else who are in danger.");
+  mainTextArea.setText("You begin to head home, when a random solicitor stops you. \"Hello, sorry to stop you sir,\" she says, \"But would you like to join the Bob army? We are here to protect the sick and all else who are in danger.");
   if (blorbEncounter==false){
     choice1.setText("Protect? From who?");
     nextPosition1 = "recWho";
@@ -528,9 +528,7 @@ public void walkToRec(){
 
 
 public void recWho(){
-    mainTextArea.setText("Protect them from Blorb, of course! Everytime word goes around that someone is sick, Blorb finds " +
-    "them and… well… he sprays hand sanitizer in their eyes, assuming it will make them less sick. Please, sir, we need your "+
-    "help, and we must catch this menace of a cat");
+    mainTextArea.setText("Protect them from Blorb, of course! Everytime word goes around that someone is sick, Blorb finds them and… well… he sprays hand sanitizer in their eyes, assuming it will make them less sick. Please, sir, we need your help, and we must catch this menace of a cat");
 
 
     choice1.setText("Sure");
@@ -543,9 +541,7 @@ public void recWho(){
 
 
 public void recWhat(){
-    mainTextArea.setText("Everytime word goes around that someone is sick, Blorb finds them and… well… he sprays hand "+
-    "sanitizer in their eyes, assuming it will make them less sick. I don't know why he does it in such a cruel way, but "+
-    "he must be stopped! Please, sir, we need your help, and we must catch this menace of a cat.");
+    mainTextArea.setText("Everytime word goes around that someone is sick, Blorb finds them and… well… he sprays hand sanitizer in their eyes, assuming it will make them less sick. I don't know why he does it in such a cruel way, but he must be stopped! Please, sir, we need your help, and we must catch this menace of a cat.");
 
 
     choice1.setText("Sure");
@@ -559,8 +555,7 @@ public void recWhat(){
 
 public void recNah(){
     choiceButtonPanel.remove(choice2);
-    mainTextArea.setText("\"Oh please sir! Think about the sick! We can't let this happen to them!\" \n\"I said, I'm good.\" "+
-    "You say, and walk off.");
+    mainTextArea.setText("\"Oh please sir! Think about the sick! We can't let this happen to them!\" \n\"I said, I'm good.\" You say, and walk off.");
 
 
     choice1.setText("Continue");
