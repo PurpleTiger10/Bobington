@@ -127,6 +127,7 @@ public class Bobington {
      mainTextArea.setForeground(Color.WHITE);
      mainTextArea.setFont(normalFont);
      mainTextArea.setLineWrap(true);
+     mainTextArea.setWrapStyleWord(true);
 
      choiceButtonPanel = new JPanel();
      choiceButtonPanel.setBounds((int)(100/resize),(int)(1000/resize),(int)(1400/resize),(int)(100/resize));
@@ -263,11 +264,11 @@ public class Bobington {
  public void start1(){
     artHan.draw(ArtList.BobingtonAerial);
      mainTextArea.setText("You are about to " +
- "embark on a journey \nof a lifetime, and it all starts in a happy" +
- "town by the name of Bobington. You, \nof course, do not know you are" +
- " about \nto start an adventure, because if you \ndid, you would have " +
- "never moved in \nthe first place, as you are a lazy twit \nwho " +
- "only cares about comfort and \nnever touches grass.");
+ "embark on a journey of a lifetime, and it all starts in a happy" +
+ "town by the name of Bobington. You, of course, do not know you are" +
+ " about to start an adventure, because if you did, you would have " +
+ "never moved in the first place, as you are a lazy twit who " +
+ "only cares about comfort and never touches grass.");
 
      nextPosition1 = "start2";
      con.revalidate();
@@ -275,11 +276,11 @@ public class Bobington {
  }
 
  public void start2(){
-     mainTextArea.setText("     Well anyways... You have moved \ninto a lovely single " +
- "story house. It isn't massive, but it fits all your needs. \n     You " +
- "set up the important things, \nlike the furniture, the bedroom, " +
- "and, \nmost importantly, your TV, so that youcan ScreenCast " +
- "your scrolling to the \nbig screen.");
+     mainTextArea.setText("     Well anyways... You have moved into a lovely single " +
+ "story house. It isn't massive, but it fits all your needs.      You " +
+ "set up the important things, like the furniture, the bedroom, " +
+ "and, most importantly, your TV, so that youcan ScreenCast " +
+ "your scrolling to the big screen.");
 
  nextPosition1 = "startHouse";
 
@@ -291,9 +292,9 @@ public class Bobington {
      choiceButtonPanel.add(choice2);
      choiceButtonPanel.remove(choice3);
      choiceButtonPanel.remove(choice4);
-     mainTextArea.setText("     There\'s a grocery store nearby, so \nyou can go " +
+     mainTextArea.setText("     There\'s a grocery store nearby, so you can go " +
  "grab some snacks and stuff, or you can walk around the " +
- "\nneighborhood to get a bit of \nunderstanding about where you live.");
+ "neighborhood to get a bit of understanding about where you live.");
  choice1.setText("Go to the grocery store.");
  choice2.setText("Go for a walk.");
 
@@ -308,7 +309,7 @@ public class Bobington {
 
  public void grocery(){
     position = "grocery";
-     mainTextArea.setText("You enter the grocery store to find \nsome snacks. You pace up and down \nthe aisles, trying to decide which snack you want.");
+     mainTextArea.setText("You enter the grocery store to find some snacks. You pace up and down the aisles, trying to decide which snack you want.");
 
      choice1.setText("Oodle-Oodle Bar");
      choice2.setText("Slackers");
@@ -325,7 +326,7 @@ public class Bobington {
  public void walk(){
     blorbEncounter = true;
      choiceButtonPanel.remove(choice2);
-     mainTextArea.setText("You walk out the door and begin to \nexplore the niegborhood. You smell thescent of freshly cut grass as the sun \nbeams down on your skin. \n\nWhat a wonderful day!");
+     mainTextArea.setText("You walk out the door and begin to explore the niegborhood. You smell thescent of freshly cut grass as the sun beams down on your skin. What a wonderful day!");
 
      choice1.setText("Continue");
 
@@ -336,7 +337,7 @@ public class Bobington {
 
 public void walk2(){
    choiceButtonPanel.add(choice2);
-   mainTextArea.setText("Suddenly, a white van skids to a stop \nnext to you. The window rolls down, \nand the driver... who is a cat... stares \ndirectly at you. \"Greetings, human.\" he says.");
+   mainTextArea.setText("Suddenly, a white van skids to a stop next to you. The window rolls down, and the driver... who is a cat... stares directly at you. \"Greetings, human.\" he says.");
 
    choice1.setText("Can I help you?");
    choice2.setText("Who the absolute heck are you?!");
@@ -346,9 +347,9 @@ public void walk2(){
 }
 
 public void walkCan(){
-   mainTextArea.setText("\"Why, of course I can use your help.\" He says, \"My name is Blorb, or Big \nBoss Blorb, " +
+   mainTextArea.setText("\"Why, of course I can use your help.\" He says, \"My name is Blorb, or Big Boss Blorb, " +
    "if you prefer. I see that youare new here, so I knew I had to get to you before those horrid \'Bob army\' " +
-   "\nfellows got to you. And that is exactly why I need your help. The Bob army is taking over the entirety of " +
+   "fellows got to you. And that is exactly why I need your help. The Bob army is taking over the entirety of " +
    "Bobington, and I need your help to turn the tides, and stop them once and for all.\"");
 
    choice1.setText("Who is the Bob army?");
@@ -369,8 +370,8 @@ public void walkWell(){
 }
 
 public void walkWho(){
-   mainTextArea.setText("\"Me? I am Big Boss Blorb, or just \nBlorb if you prefer. I am the leader of \nthe " +
-   "anti-Bob and anti-sick \norganization.\"");
+   mainTextArea.setText("\"Me? I am Big Boss Blorb, or just Blorb if you prefer. I am the leader of the " +
+   "anti-Bob and anti-sick organization.\"");
 
    choice1.setText("Anti-Bob?");
    choice2.setText("Anti-sick?");
@@ -381,9 +382,9 @@ public void walkWho(){
 
 public void walkBob(){
    choiceButtonPanel.remove(choice2);
-   mainTextArea.setText("\"Oh those horrid people. You see, I \nreally don\'t mind the people of \nBobington much " +
-   "(other than the sick \nones, of course), but recently, they \nhave mostly turned against me! And it " +
-   "was all because of Super-Bob, the \nleader of them all. Pathetic!");
+   mainTextArea.setText("\"Oh those horrid people. You see, I really don\'t mind the people of Bobington much " +
+   "(other than the sick ones, of course), but recently, they have mostly turned against me! And it " +
+   "was all because of Super-Bob, the leader of them all. Pathetic!");
 
    choice1.setText("Continue");
 
@@ -392,9 +393,9 @@ public void walkBob(){
 
 public void walkBob2(){
    choiceButtonPanel.add(choice2);
-   mainTextArea.setText("All I have been trying to do is rid \nBobington of those who must be rid of, and cleanse " +
-   "the city, but what do they \ncare about that? They just want to \ncontinue living on in their filth and \nsicknesses " +
-   "I suppose. But please, I \ndon\'t have many on my side, so would you join me in my attempts to cleanse Bobington of germs?\"");
+   mainTextArea.setText("All I have been trying to do is rid Bobington of those who must be rid of, and cleanse " +
+   "the city, but what do they care about that? They just want to continue living on in their filth and sicknesses " +
+   "I suppose. But please, I don\'t have many on my side, so would you join me in my attempts to cleanse Bobington of germs?\"");
 
    choice1.setText("Sure");
    choice2.setText("No thanks");
@@ -405,10 +406,10 @@ public void walkBob2(){
 
 public void walkSick(){
    choiceButtonPanel.remove(choice2);
-   mainTextArea.setText("I know, it may sound strange to you, \nbut I am truly justified in my hating of " +
-   "\nthe sick. You see, when I was a little \nboy, I always wanted to go to Udjat\'s \nDoughnuts. I yearned to "+
-   "try the rides, \nand eat the world renowned doughnuts Ihad always dreamed of eating. \nOne day, my dreams came to fruition " +
-   "\nwhen my friends invited me to go with \nthem the next day.");
+   mainTextArea.setText("I know, it may sound strange to you, but I am truly justified in my hating of " +
+   "the sick. You see, when I was a little boy, I always wanted to go to Udjat\'s Doughnuts. I yearned to "+
+   "try the rides, and eat the world renowned doughnuts Ihad always dreamed of eating. One day, my dreams came to fruition " +
+   "when my friends invited me to go with them the next day.");
 
    choice1.setText("Continue");
 
@@ -418,18 +419,18 @@ public void walkSick(){
 
 public void walkSick2(){
    mainTextArea.setText("\"Of course I accepted. I could not haveever been more happy than I was at thatmoment. " +
-   "I rushed home that day, and \nwent to bed as fast as I could. I \ncouldn\'t wait until tomorrow. And \nfinally, tomorrow " +
-   "came. \nBut what\'s this? I was horribly \nlightheaded, and I felt sick to my \nstomach.\"");
+   "I rushed home that day, and went to bed as fast as I could. I couldn\'t wait until tomorrow. And finally, tomorrow " +
+   "came. But what\'s this? I was horribly lightheaded, and I felt sick to my stomach.\"");
 
    nextPosition1 = "walkSick3";
 }
 
 public void walkSick3(){
    choiceButtonPanel.add(choice2);
-   mainTextArea.setText(" I told my mom I wasn\'t feeling well, \nand she… *sniff* she told me I had a \nfever, and I " +
-   "couldn\'t go to Udjat\'s with my friends. The sick people, you see, \ncompletely ruined my childhood " +
-   "by \ninfecting me with their atrocities, and \nthus, I must pay them back. For\njustice, for Udjat\'s, and for " +
-   "little Blorb, who just wanted to play with his \nfriends.\"");
+   mainTextArea.setText(" I told my mom I wasn\'t feeling well, and she… *sniff* she told me I had a fever, and I " +
+   "couldn\'t go to Udjat\'s with my friends. The sick people, you see, completely ruined my childhood " +
+   "by infecting me with their atrocities, and thus, I must pay them back. For justice, for Udjat\'s, and for " +
+   "little Blorb, who just wanted to play with his friends.\"");
 
    choice1.setText("I\'m sorry to hear that");
    choice2.setText("That wasn't their fault");
@@ -555,7 +556,7 @@ public void recWhat(){
 
 public void recNah(){
     choiceButtonPanel.remove(choice2);
-    mainTextArea.setText("\"Oh please sir! Think about the sick! We can't let this happen to them!\" \n\"I said, I'm good.\" You say, and walk off.");
+    mainTextArea.setText("\"Oh please sir! Think about the sick! We can't let this happen to them!\" \"I said, I'm good.\" You say, and walk off.");
 
 
     choice1.setText("Continue");
