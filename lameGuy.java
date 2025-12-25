@@ -20,7 +20,7 @@ public class lameGuy{
     }
 
     public void home(){
-    game.mainTextArea.setText("\"Nah, I'm good\" you say. You leave the station and head home, because you are a sad little "+
+     game.mainTextArea.setText("\"Nah, I'm good\" you say. You leave the station and head home, because you are a sad little "+
     "coward who won't stand up for what you know is truely right. As you get home, you see your couch and TV calling your name.");
     game.choiceButtonPanel.remove(game.choice3);
     game.choice1.setText("Take a nap");
@@ -58,7 +58,8 @@ public void nap(){
     game.con.revalidate();
     }
     public void fakeBob(){
-        game.mainTextArea.setText("\"I knew it!\" the solicitor exclaims, \"Take him down Bubby; we cannot let another Bob "+
+        game.drawingPanel.remove(game.artHan);
+         game.mainTextArea.setText("\"I knew it!\" the solicitor exclaims, \"Take him down Bubby; we cannot let another Bob "+
             "supporter roam free!\"");
         fight();
         //sf.fight();
@@ -77,7 +78,9 @@ public void nap(){
         game.con.repaint();
         game.con.revalidate();
     }
-    public void victory(){
+     public void victory(){
+        game.drawingPanel.removeAll();
+        game.drawingPanel.add(game.artHan);
         game.mainTextArea.setText("You deliver a crushing blow to the solicitor, who falls to the ground, defeated. "+
             "The solicitor yelps in horror as \"Bubby\" falls to the ground. \"You little twit! You will pay for this!\" he "+
         "says. He grabs his buddy and they both scamper off. What now?");
@@ -93,7 +96,7 @@ public void nap(){
         game.mainTextArea.setText("You hear glass shattering. Dazed, you sit up in your bed. Something is wrong. "+
         "\"You have nowhere to run, you worthless man!\" a voice shouts.");
         game.choiceButtonPanel.remove(game.choice2);
-        game.choiceButtonPanel.add(game.chioce2);
+        game.choiceButtonPanel.add(game.choice2);
         game.choice1.setText("RUN");
         game.choice2.setText("HIDE");
     }
@@ -103,7 +106,7 @@ public void nap(){
     "\"I'm not letting you in Blorb!\" you yell back. \"Perhaps not, and if so, I will let myself in!\" He pulls a "+
 "battering ram from behind his back and slams it into your door.");
         game.choiceButtonPanel.remove(game.choice2);
-        game.choiceButtonPanel.add(game.chioce2);
+        game.choiceButtonPanel.add(game.choice2);
         game.choice1.setText("RUN");
         game.choice2.setText("HIDE");
         game.nextPosition1 = "BlorbRUN";
