@@ -5,10 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "jdk",
+            // Use the Java Debug extension launch type and provide the main class name
+            "type": "java",
             "request": "launch",
-            "name": "Launch Java App",
-            "mainClass": "/Bobington/Bobington.java"
+            "name": "Launch Bobington (Main)",
+            "mainClass": "Bobington"
         }
     ]
 }
