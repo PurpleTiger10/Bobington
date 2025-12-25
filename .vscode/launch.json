@@ -8,7 +8,7 @@
             "type": "jdk",
             "request": "launch",
             "name": "Launch Java App",
-            "mainClass": "Bobington"
+            "mainClass": "PurpleTiger10/Bobington/Boginton.java"
         }
     ]
 }
