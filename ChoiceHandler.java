@@ -76,8 +76,8 @@ public class ChoiceHandler implements ActionListener{
     case "victory": lame.victory(); break;
     case "BobNap": lame.BobNap(); break;
     case "BlorbNap": lame.BlorbNap(); break;
-    case "BlorbRUN": good.BlorbRUN(); break;
-    case "BlorbHIDE": good.BlorbFight(); break;
+    case "BlorbRUN": lame.BlorbRUN(); break;
+    case "BlorbHIDE": lame.BlorbHIDE(); break;
     }
   }
 
