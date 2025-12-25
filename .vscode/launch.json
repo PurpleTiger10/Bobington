@@ -8,7 +8,7 @@
             "type": "jdk",
             "request": "launch",
             "name": "Launch Java App",
-            "mainClass": "Bobington.Bobington.java"
+            "mainClass": "/Bobington/Bobington.java"
         }
     ]
 }
